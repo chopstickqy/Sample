@@ -1,0 +1,14 @@
+eclipse.preferences.version=1
+encoding//src/main/webapp/chart1.jsp=UTF-8
+encoding//src/main/webapp/customer.jsp=UTF-8
+encoding//src/main/webapp/login.jsp=UTF-8
+encoding//src/main/webapp/order_info.jsp=UTF-8
+encoding//src/main/webapp/purchase_order.jsp=UTF-8
+encoding//src/main/webapp/sales_order.jsp=UTF-8
+encoding//src/main/webapp/stock_info.jsp=UTF-8
+encoding//src/main/webapp/supplier.jsp=UTF-8
+encoding//src/test/java/com/avaya/mapper/CustomerMapperTest.java=UTF-8
+encoding//src/test/java/com/avaya/mapper/EncryptionUtilsTest.java=UTF-8
+encoding//src/test/java/com/avaya/mapper/OrderMapperTest.java=UTF-8
+encoding//src/test/java/com/avaya/mapper/SupplerMapperTest.java=UTF-8
+encoding//src/test/java/com/avaya/mapper/UserMapperTest.java=UTF-8

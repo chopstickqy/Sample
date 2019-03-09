@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>  
+	    <setting name="jdbcTypeForNull" value="NULL" />  
+	</settings>  
+    <typeAliases>
+        <typeAlias alias="User" type="com.sunday.model.User"/>
+        <typeAlias alias="Commodity" type="com.sunday.model.Commodity"/>
+        <typeAlias alias="Supplier" type="com.sunday.model.Supplier"/>
+        <typeAlias alias="Customer" type="com.sunday.model.Customer"/>
+        <typeAlias alias="Stock" type="com.sunday.model.Stock"/>
+        <typeAlias alias="Order" type="com.sunday.model.Order"/>
+        <typeAlias alias="Sales" type="com.sunday.model.Sales"/>
+        <typeAlias alias="Constant" type="com.sunday.model.Constant"/>
+    </typeAliases>
+    <mappers>
+        <mapper resource="com/sunday/mapper/UserMapper.xml" />
+        <mapper resource="com/sunday/mapper/CommodityMapper.xml" />
+        <mapper resource="com/sunday/mapper/SupplierMapper.xml" />
+        <mapper resource="com/sunday/mapper/CustomerMapper.xml" />
+        <mapper resource="com/sunday/mapper/StockMapper.xml" />
+        <mapper resource="com/sunday/mapper/OrderMapper.xml" />
+        <mapper resource="com/sunday/mapper/SalesMapper.xml" />
+        <mapper resource="com/sunday/mapper/ConstantMapper.xml" />
+    </mappers>
+</configuration>

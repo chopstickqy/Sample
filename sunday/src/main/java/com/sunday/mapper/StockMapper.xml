@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sunday.inter.StockMapper" >
+  <resultMap id="BaseResultMap" type="com.sunday.model.Stock" >
+    <id column="t_id" property="tId" jdbcType="VARCHAR" />
+    <result column="t_name" property="tName" jdbcType="VARCHAR" />
+    <result column="t_number" property="tNumber" jdbcType="VARCHAR" />
+    <result column="t_quantity" property="tQuantity" jdbcType="INTEGER" />
+    <result column="t_time" property="tTime" jdbcType="TIMESTAMP" />
+    <result column="t_inquantity" property="tInQuantity" jdbcType="INTEGER" />
+    <result column="t_state" property="tState" jdbcType="VARCHAR" />
+    <result column="t_supplier" property="tSupplier" jdbcType="VARCHAR" />
+    <result column="t_type" property="tType" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    t_id, t_name, t_number, t_quantity, t_time, t_inquantity, t_state, t_supplier, t_type
+  </sql>
+  
+  <!-- 单条数据查询 -->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    	<include refid="Base_Column_List" />
+    from 
+    	tb_stock
+    where 
+    	t_id = #{_parameter} 
+  </select>
+  
+   <!-- 多数据查询 -->
+  <select id="selectStocks" resultMap="BaseResultMap" >
+    select 
+    	<include refid="Base_Column_List" />
+    from 
+    	tb_stock
+    where 
+    		t_type = '${type}'
+    	and	t_name like CONCAT('%','${name}','%' ) 
+    	and t_number like CONCAT('%','${number}','%' ) 
+   		<if test="supplier!=null and supplier!=''">
+  	   		and t_supplier = '${supplier}' 
+   		</if>
+   		<if test="maxQuantity!=null and maxQuantity!=''">
+  	   		and t_quantity between ${minQuantity} and ${maxQuantity}
+   		</if>
+   		<if test="maxQuantity==null or maxQuantity==''">
+  	   		and t_quantity >= ${minQuantity} 
+   		</if>
+ 		 <if test="maxTime!=null and maxTime!=''">
+  	   		and t_time between '${minTime}' and '${maxTime}'
+   		</if>
+   		<if test="maxTime==null or maxTime==''">
+  	   		and t_time >= '${minTime}' 
+   		</if>
+    	LIMIT ${page},5;
+  </select>
+  
+     <!-- 多数据查询 -->
+  <select id="selectAllStocks" resultMap="BaseResultMap" >
+    select 
+    	<include refid="Base_Column_List" />
+    from 
+    	tb_stock
+  </select>
+  
+  <!-- 获取分页数 -->
+  <select id="totalPage" parameterType="String"  resultType="String">
+  	select 
+  		ceil(count(t_id)/5) 
+  	from 
+  		tb_stock 
+  	where 
+  	    	t_type = '${type}'
+  		and	t_name like CONCAT('%','${name}','%' ) 
+    	and t_number like CONCAT('%','${number}','%' ) 
+   		<if test="supplier!=null and supplier!=''">
+  	   		and t_supplier = '${supplier}' 
+   		</if>
+   		<if test="maxQuantity!=null and maxQuantity!=''">
+  	   		and t_quantity between ${minQuantity} and ${maxQuantity}
+   		</if>
+   		<if test="maxQuantity==null or maxQuantity==''">
+  	   		and t_quantity >= ${minQuantity} 
+   		</if>
+ 		 <if test="maxTime!=null and maxTime!=''">
+  	   		and t_time between '${minTime}' and '${maxTime}'
+   		</if>
+   		<if test="maxTime==null or maxTime==''">
+  	   		and t_time >= '${minTime}' 
+   		</if>
+  </select>
+  
+  <!-- 单条添加 -->
+  <insert id="insertStock" parameterType="Stock" >
+   	insert into 
+   		tb_stock(t_id,t_name,t_number,t_quantity,t_time,t_inquantity,t_state,t_supplier,t_type) 
+   	values 
+   		(#{tId},#{tName},#{tNumber},#{tQuantity},#{tTime},#{tInQuantity},#{tState},#{tSupplier},#{tType});
+  </insert>
+  
+  <!-- 单条更新 -->
+  <update id="updateStock" parameterType="Stock">
+   	update 
+   		tb_stock 
+   	set 
+   		t_name=#{tName},
+   		t_number=#{tNumber},
+   		t_quantity=#{tQuantity},
+   		t_inquantity=#{tInQuantity},
+   		t_state=#{tState},
+   		t_time=#{tTime},
+   		t_supplier=#{tSupplier},
+   		t_type=#{tType}
+	 where 
+	 	t_id=#{tId}
+   </update>
+</mapper>

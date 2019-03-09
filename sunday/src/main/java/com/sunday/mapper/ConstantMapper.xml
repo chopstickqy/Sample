@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sunday.inter.ConstantMapper" >
+  <resultMap id="BaseResultMap" type="com.sunday.model.Constant" >
+    <id column="commodity_type" property="commodityType" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    commodity_type
+  </sql>
+  
+
+   <!-- 多数据查询 -->
+  <select id="selectConstant" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from 
+    	tb_constant
+
+  </select>
+ 
+  <!-- 单条添加 -->
+  <insert id="insertConstant" parameterType="Constant" >
+   	insert into tb_constant(commodity_type) values (#{commodityType});
+  </insert>
+  
+   
+   <!-- 单条删除  -->
+   <delete id="deleteConstant" parameterType="String">
+   		delete from tb_constant where commodity_type = #{_parameter};
+   </delete>
+</mapper>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sunday.inter.CustomerMapper" >
+  <resultMap id="BaseResultMap" type="com.sunday.model.Customer" >
+    <id column="c_id" property="cId" jdbcType="VARCHAR" />
+    <result column="c_name" property="cName" jdbcType="VARCHAR" />
+    <result column="c_contact" property="cContact" jdbcType="VARCHAR" />
+    <result column="c_phone" property="cPhone" jdbcType="VARCHAR" />
+    <result column="c_address" property="cAddress" jdbcType="VARCHAR" />
+    <result column="c_description" property="cDescription" jdbcType="VARCHAR" />
+    <result column="c_time" property="cTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    c_id, c_name, c_contact, c_phone , c_address, c_description, c_time
+  </sql>
+  
+  <!-- 单条数据查询 -->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    	<include refid="Base_Column_List" />
+    from 
+    	tb_customer
+    where 
+    	c_id = #{_parameter} 
+  </select>
+  
+   <!-- 多数据查询 -->
+  <select id="selectCustomers" resultMap="BaseResultMap" >
+    select 
+    	<include refid="Base_Column_List" />
+    from 
+    	tb_customer
+    where 
+    	c_name like CONCAT('%','${name}','%' ) 
+    limit 
+    	${page},5;
+  </select>
+  
+  <!-- 多数据查询 -->
+  <select id="selectAllCustomers" resultMap="BaseResultMap" >
+    select 
+    	<include refid="Base_Column_List" />
+    from 
+    	tb_customer
+  </select>
+  
+  <!-- 获取分页数 -->
+  <select id="totalPage" parameterType="String"  resultType="String">
+  	select 
+  		ceil(count(c_id)/5) 
+  	from 
+  		tb_customer 
+  	where 
+		c_name like CONCAT('%','${name}','%' ) 
+  </select>
+  
+  <!-- 单条添加 -->
+  <insert id="insertCustomer" parameterType="Customer" >
+   	insert into 
+   		tb_customer(c_id, c_name, c_contact, c_phone, c_address, c_description, c_time) 
+   	values 
+   		(#{cId}, #{cName}, #{cContact}, #{cPhone}, #{cAddress}, #{cDescription}, #{cTime});
+  </insert>
+  
+  <!-- 单条更新 -->
+  <update id="updateCustomer" parameterType="Customer">
+   	update 
+   		tb_customer 
+   	set 
+	   	c_name=#{cName}, 
+	   	c_contact=#{cContact}, 
+	   	c_phone=#{cPhone},
+	   	c_address=#{cAddress},
+	   	c_description=#{cDescription},
+	   	c_time=#{cTime}
+	where 
+		c_id=#{cId}
+   </update>
+   
+    <!-- 单条删除  -->
+   <delete id="deleteCustomer" parameterType="String">
+   		delete from tb_customer where c_id = #{_parameter};
+   </delete>
+</mapper>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sunday.inter.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.sunday.model.User" >
+    <id column="u_account" property="uAccount" jdbcType="VARCHAR" />
+    <result column="u_name" property="uName" jdbcType="VARCHAR" />
+    <result column="u_sex" property="uSex" jdbcType="VARCHAR" />
+    <result column="u_phone" property="uPhone" jdbcType="VARCHAR" />
+    <result column="u_type" property="uType" jdbcType="VARCHAR" />
+    <result column="u_time" property="uTime" jdbcType="TIMESTAMP" />
+    <result column="u_password" property="uPassword" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    u_account, u_name, u_sex ,u_phone ,u_type ,u_time,u_password
+  </sql>
+  
+  <!-- 单条数据查询 -->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_user
+    where u_account = #{_parameter} 
+  </select>
+  
+   <!-- 多数据查询 -->
+  <select id="selectUsers" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from 
+    	tb_user
+    where 
+    	u_name like CONCAT('%','${name}','%' ) and u_type like CONCAT('%','${type}','%' ) LIMIT ${page},10;
+  </select>
+  
+  <!-- 获取分页数 -->
+  <select id="totalPage" parameterType="String"  resultType="String">
+  	select ceil(count(u_account)/10) from tb_user WHERE u_name like CONCAT('%','${name}','%' ) and u_type like CONCAT('%','${type}','%' );
+  </select>
+  
+  <!-- 单条添加 -->
+  <insert id="insertUser" parameterType="User" >
+   	insert into tb_user(u_account,u_name,u_sex,u_phone,u_type,u_time,u_password) values (#{uAccount},#{uName},#{uSex},#{uPhone},#{uType},#{uTime},#{uPassword});
+  </insert>
+  
+  <!-- 单条更新 -->
+  <update id="updateUser" parameterType="User">
+   	update 
+   		tb_user 
+   	set 
+	   	u_name=#{uName}, 
+	   	u_sex=#{uSex}, 
+	   	u_phone=#{uPhone},
+	   	u_type=#{uType},
+		u_Time=#{uTime}
+	where 
+		u_account=#{uAccount}
+   	
+   </update>
+   
+     <!-- 单条更新 -->
+  <update id="updatePassword" parameterType="String">
+   	update 
+   		tb_user 
+   	set 
+	    u_password = '${password}'
+	where 
+		u_account = '${account}'
+   	
+   </update>
+   
+   <!-- 单条删除  -->
+   <delete id="deleteUser" parameterType="String">
+   		delete from tb_user where u_account = #{_parameter};
+   </delete>
+</mapper>

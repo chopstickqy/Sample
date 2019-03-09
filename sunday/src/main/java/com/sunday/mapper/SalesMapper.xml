@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sunday.inter.SalesMapper" >
+  <resultMap id="BaseResultMap" type="com.sunday.model.Sales" >
+    <id column="e_id" property="eId" jdbcType="VARCHAR" />
+    <result column="e_commodity" property="eCommodity" jdbcType="VARCHAR" />
+    <result column="e_commodityid" property="eCommodityid" jdbcType="VARCHAR" />
+    <result column="e_customer" property="eCustomer" jdbcType="VARCHAR" />
+    <result column="e_number" property="eNumber" jdbcType="INTEGER" />
+    <result column="e_price" property="ePrice" jdbcType="DOUBLE" />
+    <result column="e_time" property="eTime" jdbcType="TIMESTAMP" />
+    <result column="e_user" property="eUser" jdbcType="VARCHAR" />
+    <result column="e_state" property="eState" jdbcType="VARCHAR" />
+    <result column="e_profit" property="eProfit" jdbcType="DOUBLE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    e_id, e_commodity, e_customer, e_number , e_price , e_time , e_user , e_state, e_commodityid, e_profit
+  </sql>
+  
+  <!-- 单条数据查询 -->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from 
+    	tb_sales
+    where 
+    	e_id = #{_parameter} 
+  </select>
+  
+   <!-- 多数据查询 -->
+  <select id="selectSales" resultMap="BaseResultMap" >
+    select 
+    	<include refid="Base_Column_List" />
+    from 
+    	tb_sales
+    where 
+    		e_commodity like CONCAT('%','${commodity}','%' ) 
+    	and e_customer like CONCAT('%','${customer}','%' ) 
+   		<if test="state!=null and state!=''">
+   	    	and e_state='${state}'
+   		</if>
+    	and e_id like CONCAT('%','${id}','%' ) 
+     	<if test="maxTime!=null and maxTime!=''">
+  	   		and e_time between '${minTime}' and '${maxTime}'
+   		</if>
+   		<if test="maxTime==null or maxTime==''">
+  	   		and e_time >= '${minTime}' 
+   		</if>
+    	LIMIT ${page},5;
+  </select>
+  
+  <!-- 获取分页数 -->
+  <select id="totalPage" parameterType="String"  resultType="String">
+  	select 
+  		ceil(count(e_id)/5) 
+    from 
+    	tb_sales
+    where 
+    		e_commodity like CONCAT('%','${commodity}','%' ) 
+    	and e_customer like CONCAT('%','${customer}','%' ) 
+   		<if test="state!=null and state!=''">
+   	    	and e_state='${state}'
+   		</if>
+    	and e_id like CONCAT('%','${id}','%' ) 
+     	<if test="maxTime!=null and maxTime!=''">
+  	   		and e_time between '${minTime}' and '${maxTime}'
+   		</if>
+   		<if test="maxTime==null or maxTime==''">
+  	   		and e_time >= '${minTime}' 
+   		</if>
+  </select>
+  
+  <!-- 单条添加 -->
+  <insert id="insertSales" parameterType="Sales" >
+   	insert into 
+   		tb_sales(e_id, e_commodity, e_customer, e_number, e_price, e_time, e_user, e_state, e_commodityid, e_profit) 
+   	values 
+   		(#{eId}, #{eCommodity}, #{eCustomer}, #{eNumber}, #{ePrice}, #{eTime}, #{eUser}, #{eState}, #{eCommodityid}, #{eProfit});
+  </insert>
+  
+  <!-- 单条更新 -->
+  <update id="updateSales" parameterType="Sales">
+   	update 
+   		tb_sales 
+   	set 
+   		e_commodity=#{eCommodity}, 
+   		e_customer=#{eCustomer},
+   		e_number=#{eNumber},
+   		e_price=#{ePrice},
+   		e_user=#{eUser},
+   		e_state=#{eState},
+   		e_commodityid=#{eCommodityid},
+   		e_profit=#{eProfit}
+	where 
+		e_id=#{eId}
+   </update>
+   
+   <!-- 获取所有人数 -->
+   <select id="selectEachBuyer" resultType="String">
+		select e_user from tb_sales group by e_user
+   </select>
+   
+   <!-- 获取所有年份 -->
+   <select id="selectEachYear" resultType="String">
+		select date_format(e_time, '%Y') as eachMonth  from tb_sales group by date_format(e_time, '%Y')
+   </select>
+   
+   <!-- 获取所有月份 -->
+   <select id="selectEachMonth" resultType="String">
+		select date_format(e_time, '%Y-%m') as eachMonth  from tb_sales group by date_format(e_time, '%Y-%m')
+   </select>
+  
+    <!-- 获取所有天数 -->
+   <select id="selectEachDay" resultType="String">
+		select date_format(e_time, '%Y-%m-%d') as eachMonth  from tb_sales group by date_format(e_time, '%Y-%m-%d')
+   </select>
+   
+   <!-- 单月份销售总量 -->
+   <select id="monthSale" parameterType="java.lang.String" resultType="String">
+   		select 
+   			sum(e_number) as total 
+   		from 
+   			tb_sales 
+   		where
+   				date_format(e_time, '%Y-%m') = '${month}'
+   			and e_user = '${id}'
+   			and e_state = '已出库'
+   </select>
+   
+   <!-- 单月份销售总额 -->
+   <select id="monthTotalSales" parameterType="java.lang.String" resultType="String">
+		select 
+			sum(e_number*e_price) as total 
+		from 
+			tb_sales 
+		where 
+			date_format(e_time, '%Y-%m') = '${month}'
+			and e_state = '已出库'
+   </select>
+   
+   <!-- 同一商品尺码号销售总量 -->
+   <select id="sizeSale" parameterType="java.lang.String" resultType="String">
+   		select 
+   			sum(e_number) as total 
+   		from 
+   			tb_sales 
+   		where
+			e_commodityid = '${commodityid}'
+			and e_state = '已出库'
+   </select>
+     
+   <!-- 同一类别销售利润 -->
+   <select id="typeSale" parameterType="java.lang.String" resultType="String">
+   		select 
+   			sum(e_profit) as total 
+   		from 
+   			tb_sales 
+   		left join 
+   			tb_commodity
+		on
+			e_commodityid = m_id 			
+   		where
+   			m_type='${type}'
+			and date_format(e_time, '${format}') = '${date}'
+			and e_state = '已出库'
+   </select>
+</mapper>

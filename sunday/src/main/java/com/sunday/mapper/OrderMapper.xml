@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sunday.inter.OrderMapper" >
+  <resultMap id="BaseResultMap" type="com.sunday.model.Order" >
+    <id column="o_id" property="oId" jdbcType="VARCHAR" />
+    <result column="o_commodity" property="oCommodity" jdbcType="VARCHAR" />
+    <result column="o_commodityid" property="oCommodityid" jdbcType="VARCHAR" />
+    <result column="o_supplier" property="oSupplier" jdbcType="VARCHAR" />
+    <result column="o_number" property="oNumber" jdbcType="INTEGER" />
+    <result column="o_price" property="oPrice" jdbcType="DOUBLE" />
+    <result column="o_time" property="oTime" jdbcType="TIMESTAMP" />
+    <result column="o_user" property="oUser" jdbcType="VARCHAR" />
+    <result column="o_state" property="oState" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    o_id, o_commodity, o_supplier, o_number, o_price, o_time, o_user, o_state, o_commodityid
+  </sql>
+  
+  <!-- 单条数据查询 -->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from 
+    	tb_order
+    where 
+    	o_id = #{_parameter} 
+  </select>
+  
+   <!-- 多数据查询 -->
+  <select id="selectOrders" resultMap="BaseResultMap" >
+    select 
+    	<include refid="Base_Column_List" />
+    from 
+    	tb_order
+    where 
+    		o_commodity like CONCAT('%','${commodity}','%' ) 
+    	and o_supplier like CONCAT('%','${supplier}','%' ) 
+   		<if test="state!=null and state!=''">
+   	    	and o_state='${state}'
+   		</if>
+    	and o_id like CONCAT('%','${id}','%' ) 
+     	<if test="maxTime!=null and maxTime!=''">
+  	   		and o_time between '${minTime}' and '${maxTime}'
+   		</if>
+   		<if test="maxTime==null or maxTime==''">
+  	   		and o_time >= '${minTime}' 
+   		</if>
+    	LIMIT ${page},5;
+  </select>
+  
+  <!-- 获取分页数 -->
+  <select id="totalPage" parameterType="String"  resultType="String">
+  	select 
+  		ceil(count(o_id)/5) 
+    from 
+    	tb_order
+    where 
+    		o_commodity like CONCAT('%','${commodity}','%' ) 
+    	and o_supplier like CONCAT('%','${supplier}','%' ) 
+   		<if test="state!=null and state!=''">
+   	    	and o_state='${state}'
+   		</if>
+   		and o_id like CONCAT('%','${id}','%' ) 
+     	<if test="maxTime!=null and maxTime!=''">
+  	   		and o_time between '${minTime}' and '${maxTime}'
+   		</if>
+   		<if test="maxTime==null or maxTime==''">
+  	   		and o_time >= '${minTime}' 
+   		</if>
+  </select>
+  
+  <!-- 单条添加 -->
+  <insert id="insertOrder" parameterType="Order" >
+   	insert into 
+   		tb_order(o_id, o_commodity, o_supplier, o_number, o_price, o_time, o_user, o_state, o_commodityid) 
+   	values 
+   		(#{oId}, #{oCommodity}, #{oSupplier}, #{oNumber}, #{oPrice}, #{oTime}, #{oUser}, #{oState}, #{oCommodityid});
+  </insert>
+  
+  <!-- 单条更新 -->
+  <update id="updateOrder" parameterType="Order">
+   	update 
+   		tb_order 
+   	set 
+   		o_commodity=#{oCommodity}, 
+   		o_supplier=#{oSupplier}, 
+   		o_number=#{oNumber},
+   		o_price=#{oPrice},
+   		o_time=#{oTime},
+   		o_user=#{oUser},
+   		o_state=#{oState},
+   		o_commodityid=#{oCommodityid}
+	where 
+		o_id=#{oId}
+   </update>
+   
+   <!-- 获取所有人数 -->
+   <select id="selectEachBuyer" resultType="String">
+		select o_user from tb_order group by o_user
+   </select>
+   
+   <!-- 获取所有月份 -->
+   <select id="selectEachMonth" resultType="String">
+		select date_format(o_time, '%Y-%m') as eachMonth  from tb_order  group by date_format(o_time, '%Y-%m')
+   </select>
+   
+   <!-- 单月份销售总量 -->
+   <select id="monthSale" parameterType="java.lang.String" resultType="String">
+   		select 
+   			sum(o_number) as total 
+   		from 
+   			tb_order 
+   		where
+   				date_format(o_time, '%Y-%m') = '${month}'
+   			and o_user = '${id}'
+   			and o_state = '已入库'
+   </select>
+   
+   <!-- 单月份销售总额 -->
+   <select id="monthTotalSales" parameterType="java.lang.String" resultType="String">
+		select 
+			sum(o_number*o_price) as total 
+		from 
+			tb_order 
+		where 
+			date_format(o_time, '%Y-%m') = '${month}'
+			and o_state = '已入库'
+   </select>
+</mapper>

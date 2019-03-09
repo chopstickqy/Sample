@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sunday.inter.CommodityMapper" >
+  <resultMap id="BaseResultMap" type="com.sunday.model.Commodity" >
+    <id column="m_id" property="mId" jdbcType="VARCHAR" />
+    <result column="m_name" property="mName" jdbcType="VARCHAR" />
+    <result column="m_type" property="mType" jdbcType="VARCHAR" />
+    <result column="m_color" property="mColor" jdbcType="VARCHAR" />
+    <result column="m_material" property="mMaterial" jdbcType="VARCHAR" />
+    <result column="m_size" property="mSize" jdbcType="VARCHAR" />
+    <result column="m_inprice" property="mInPrice" jdbcType="DOUBLE" />
+    <result column="m_outprice" property="mOutPrice" jdbcType="DOUBLE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    m_id, m_name, m_type, m_color ,m_material ,m_size ,m_inprice ,m_outprice
+  </sql>
+  
+  <!-- 单条数据查询 -->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_commodity
+    where m_id = #{_parameter} 
+  </select>
+  
+   <!-- 多数据查询 -->
+  <select id="selectCommoditys" resultMap="BaseResultMap" >
+    select 
+    	<include refid="Base_Column_List" />
+    from 
+    	tb_commodity
+    where 
+    		m_id like CONCAT('%','${id}','%' ) 
+    	and m_name like CONCAT('%','${name}','%' ) 
+    	and m_type like CONCAT('%','${type}','%' ) 
+    	and m_color like CONCAT('%','${color}','%' ) 
+    	and m_material like CONCAT('%','${material}','%' ) 
+   		<if test="size!=null and size!=''">
+   	   		and m_size = '${size}'
+   		</if>
+    	LIMIT ${page},5;
+  </select>
+  
+  <!-- 多数据查询 -->
+  <select id="selectAllCommoditys" resultMap="BaseResultMap" >
+    select 
+    	<include refid="Base_Column_List" />
+    from 
+    	tb_commodity
+  </select>
+  
+  <!-- 获取分页数 -->
+  <select id="totalPage" parameterType="String"  resultType="String">
+  	select 
+  		ceil(count(m_id)/5) 
+  	from 
+  		tb_commodity 
+  	where 
+  			m_id like CONCAT('%','${id}','%' ) 
+    	and m_name like CONCAT('%','${name}','%' ) 
+    	and m_type like CONCAT('%','${type}','%' ) 
+    	and m_color like CONCAT('%','${color}','%' ) 
+    	and m_material like CONCAT('%','${material}','%' ) 
+   		<if test="size!=null and size!=''">
+  	   		and m_size = '${size}' ;
+   		</if>
+  </select>
+  
+  <!-- 单条添加 -->
+  <insert id="insertCommodity" parameterType="Commodity" >
+   	insert into 
+   		tb_commodity(m_id, m_name, m_type, m_color, m_material, m_size, m_inprice ,m_outprice) 
+   	values 
+   		(#{mId}, #{mName}, #{mType}, #{mColor}, #{mMaterial}, #{mSize}, #{mInPrice}, #{mOutPrice});
+  </insert>
+  
+  <!-- 单条更新 -->
+  <update id="updateCommodity" parameterType="Commodity">
+   	update 
+   		tb_commodity 
+   	set 
+   		m_name=#{mName}, 
+   		m_type=#{mType}, 
+   		m_color=#{mColor},
+   		m_material=#{mMaterial},
+   		m_size=#{mSize},
+   		m_inprice=#{mInPrice},
+   		m_outprice=#{mOutPrice}
+	 where 
+	 	m_id=#{mId}
+   </update>
+   
+   <!-- 单条删除 -->
+   <delete id="deleteCommodity" parameterType="String">
+   		delete from tb_commodity where m_id = #{_parameter};
+   </delete>
+   
+   <!-- 同一商品不同尺码商品号 -->
+   <select id="selectSizeid" parameterType="String"  resultType="String" >
+    select 
+    	m_id,m_size 
+    from 
+    	tb_commodity 
+    where 
+    		m_name = '${name}'
+  		and m_size = '${size}'
+  </select>
+  
+   <!-- 商品类型 -->
+   <select id="commodityType" parameterType="String"  resultType="String" >
+   SELECT 
+   		m_type 
+   FROM 
+   		tb_commodity 
+   WHERE 
+    	m_name ='${name}'
+   GROUP BY 
+    	m_type
+  </select>
+  
+    <!-- 商品名列表-->
+   <select id="commodityList"  resultType="String" >
+   select 
+   		m_name 
+   from 
+   		tb_commodity  
+   group by 
+   		m_name
+  </select>
+</mapper>

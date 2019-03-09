@@ -1,0 +1,151 @@
+a,abbr,acronym,address,applet,big,blockquote,body,caption,cite,code,dd,del,dfn,dl,dt,em,fieldset,font,form,h1,h2,h3,h4,h5,h6,header,iframe,img,ins,kbd,label,legend,li,object,ol,p,pre,q,s,samp,section,small,strike,strong,sub,sup,tt,ul,var{margin:0;padding:0;outline:0;border:none}h1,h2,h3,h4,h5{font-family:'Open Sans',sans-serif;font-weight:300}::-moz-selection{background:#de313b;text-shadow:none;color:#fff}::selection{background:#de313b;text-shadow:none;color:#fff}body{min-height:1900px;font-size:13px;font-family:Arial,sans-serif;color:#6b695d}p{line-height:1.5em}.centerUp{width:1000px;margin:0 auto}.billboard{background-color:#a8e6ff;background-image:-webkit-linear-gradient(top,#fff,#a8e6ff);background-image:-moz-linear-gradient(top,#fff,#a8e6ff);background-image:-o-linear-gradient(top,#fff,#a8e6ff);background-image:-ms-linear-gradient(top,#fff,#a8e6ff);background-image:linear-gradient(top,#fff,#a8e6ff);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='#ffffff', EndColorStr='#a8e6ff');border-bottom:1px solid #e4f2f2;height:561px;position:fixed;width:100%}.billboard .billboardInner{background:url(../images/bg.png) no-repeat center center;height:561px}.billboard .billboardInner .details form{margin:50px auto 40px;width:300px;outline:0}.billboard .billboardInner #downloadBtn{font-size:16px;text-transform:uppercase;text-decoration:none;text-align:center;color:#fff;display:block;margin:50px auto 40px;width:300px;height:40px;position:relative;z-index:999999;padding-top:20px;-webkit-border-radius:50px;-moz-border-radius:50px;-ms-border-radius:50px;-o-border-radius:50px;border-radius:50px;-webkit-box-shadow:inset 0 1px 2px #ff9c78;-moz-box-shadow:inset 0 1px 2px #ff9c78;box-shadow:inset 0 1px 2px #ff9c78;border:1px solid #ad4d3a;background-color:#ff1e00;background-image:-webkit-linear-gradient(top,#ff5900,#ff1e00);background-image:-moz-linear-gradient(top,#ff5900,#ff1e00);background-image:-o-linear-gradient(top,#ff5900,#ff1e00);background-image:-ms-linear-gradient(top,#ff5900,#ff1e00);background-image:linear-gradient(top,#ff5900,#ff1e00);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='#ff5900', EndColorStr='#ff1e00')}.billboard .billboardInner #downloadBtn:hover{background:#ff1e00}.parallax{float:left;width:100px}.ballon1{width:500px;margin:0 auto;padding-top:50px;height:500px;background:url(../images/ballon1.png) no-repeat;position:relative;right:100px}
+.ballon2{width:650px;height:520px;background:url(../images/ballon2.png) no-repeat;margin-left:210px}
+.details{float:left;width:450px;margin-top:50px;margin-left:50px}.details p{margin-left:10px;margin-bottom:20px}.details .btn{margin-top:20px;display:block}.details h1{color:#29a0da;font-size:80px;text-align:center;font-weight:300;margin-bottom:10px}.details h3{color:#2291c7;font-weight:500;font-size:17px;text-align:center;font-style:italic;position:relative;bottom:30px}.details form{position:relative;z-index:9999}.details form input{outline:0;border:none}.examples{background-color:#f8f3de;background-image:-webkit-linear-gradient(top,#fef9e5,#f8f3de);background-image:-moz-linear-gradient(top,#fef9e5,#f8f3de);background-image:-o-linear-gradient(top,#fef9e5,#f8f3de);background-image:-ms-linear-gradient(top,#fef9e5,#f8f3de);background-image:linear-gradient(top,#fef9e5,#f8f3de);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='#fef9e5', EndColorStr='#f8f3de');height:270px;border-top:2px solid #fff;border-bottom:1px solid #7996a5;z-index:11;position:relative;top:560px}.examples .demos{float:left;width:232px;font-weight:600;margin-top:10px;margin-right:23px;padding:15px 0}.examples .demos img{border:1px solid #e2cd75}.examples .demos.last{margin-right:0}.examples .demos h2{color:#dd303b;text-align:center;font-weight:600;font-size:18px;text-transform:uppercase;margin-bottom:10px}.main{background:url(../images/mainBg.png);position:relative;top:560px;padding-bottom:50px;overflow:auto;min-height:1100px;border-top:1px solid #bdf2f6}.btn{outline:0;border:none;border:1px solid #1488b9}#fpassModal,#modal2{background:#fefbf4;width:400px;min-height:300px}#fpassModal form,#modal2 form{width:300px;margin:30px auto 0}#fpassModal form input[type=text],#modal2 form input[type=text]{background:#fff;border:1px solid #d3ceb0;-webkit-border-radius:3px;-moz-border-radius:3px;-ms-border-radius:3px;-o-border-radius:3px;border-radius:3px;width:300px;height:40px;text-align:center;margin:0 0 20px;color:#888}#fpassModal form a,#modal2 form a{color:#de313c;text-decoration:none;position:relative;top:25px}#fpassModal form a:hover,#modal2 form a:hover{text-decoration:underline}#fpassModal form .submitBtn,#modal2 form .submitBtn{background-color:#1aaae6;-webkit-box-shadow:inset 0 1px 1px #66a0b8;-moz-box-shadow:inset 0 1px 1px #66a0b8;box-shadow:inset 0 1px 1px #66a0b8;border:1px solid #1488b9;-webkit-border-radius:5px;-moz-border-radius:5px;-ms-border-radius:5px;-o-border-radius:5px;border-radius:5px;display:block;width:180px;height:50px;float:right;text-align:center;color:#fffceb;outline:0}#fpassModal form .submitBtn{margin:20px auto 0;float:none}#modal3{min-height:300px;width:650px;padding-bottom:20px}#modal3 iframe.video{position:relative;display:block;margin:0 auto}#modal3 h1{margin:0 0 20px}#modal4 iframe{padding:0 20px 20px;margin:0 auto}#modal1{width:430px}#modal1 img{float:left;margin:0 20px}#modal1 h2{font-weight:600}#modal1 h2,#modal1 p{margin:0 0 10px 20px}#modal1 input{background-color:#1aaae6;-webkit-box-shadow:inset 0 1px 1px #66a0b8;-moz-box-shadow:inset 0 1px 1px #66a0b8;box-shadow:inset 0 1px 1px #66a0b8;border:1px solid;-webkit-border-radius:5px;-moz-border-radius:5px;-ms-border-radius:5px;-o-border-radius:5px;border-radius:5px;display:block;width:180px;height:50px;float:right;text-align:center;color:#fffceb;margin:30px 60px 0 0}.leftCol,.rightCol{float:left;margin-top:70px;margin-right:114px;width:365px}.rightCol{margin-right:0;width:520px}.rightCol h3{background:#f8f3de;color:#dd303b;font-size:18px;font-weight:600;text-transform:uppercase;padding:5px 10px;margin:20px 0}.rightCol p,.rightCol xmp{color:#fff}.leftCol .code{background:#fff;color:#000;-webkit-border-radius:10px;-moz-border-radius:10px;-ms-border-radius:10px;-o-border-radius:10px;border-radius:10px;overflow:auto;margin-bottom:40px;padding:20px}.leftCol .code h2,.leftCol .code h4{font-family:Arial,sans-serif;font-weight:600;font-size:16px;color:#e9b800}.leftCol .code h2{color:#dd303b;font-size:20px}pre code,pre code span{margin:0;padding:0}.hljs{background:#fff;padding:0}table{margin:0 0 60px;width:100%;color:#1b719c}table th{font-size:16px}table tr{height:45px;padding:3px 20px 3px 10px;text-align:left}table tr.rowStriping{background:#2291c7;color:#fff}table td{padding:10px}img.bug{margin-top:30px;margin-right:10px;float:left}a.bug{margin-top:38px;float:left;text-decoration:none;color:#1b719c}
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #f0f0f0;
+  -webkit-text-size-adjust: none;
+}
+
+.hljs,
+.hljs-subst,
+.hljs-tag .hljs-title,
+.nginx .hljs-title {
+  color: black;
+}
+
+.hljs-string,
+.hljs-title,
+.hljs-constant,
+.hljs-parent,
+.hljs-tag .hljs-value,
+.hljs-rules .hljs-value,
+.hljs-preprocessor,
+.hljs-pragma,
+.haml .hljs-symbol,
+.ruby .hljs-symbol,
+.ruby .hljs-symbol .hljs-string,
+.hljs-template_tag,
+.django .hljs-variable,
+.smalltalk .hljs-class,
+.hljs-addition,
+.hljs-flow,
+.hljs-stream,
+.bash .hljs-variable,
+.apache .hljs-tag,
+.apache .hljs-cbracket,
+.tex .hljs-command,
+.tex .hljs-special,
+.erlang_repl .hljs-function_or_atom,
+.asciidoc .hljs-header,
+.markdown .hljs-header,
+.coffeescript .hljs-attribute {
+  color: #800;
+}
+
+.smartquote,
+.hljs-comment,
+.hljs-annotation,
+.hljs-template_comment,
+.diff .hljs-header,
+.hljs-chunk,
+.asciidoc .hljs-blockquote,
+.markdown .hljs-blockquote {
+  color: #888;
+}
+
+.hljs-number,
+.hljs-date,
+.hljs-regexp,
+.hljs-literal,
+.hljs-hexcolor,
+.smalltalk .hljs-symbol,
+.smalltalk .hljs-char,
+.go .hljs-constant,
+.hljs-change,
+.lasso .hljs-variable,
+.makefile .hljs-variable,
+.asciidoc .hljs-bullet,
+.markdown .hljs-bullet,
+.asciidoc .hljs-link_url,
+.markdown .hljs-link_url {
+  color: #080;
+}
+
+.hljs-label,
+.hljs-javadoc,
+.ruby .hljs-string,
+.hljs-decorator,
+.hljs-filter .hljs-argument,
+.hljs-localvars,
+.hljs-array,
+.hljs-attr_selector,
+.hljs-important,
+.hljs-pseudo,
+.hljs-pi,
+.haml .hljs-bullet,
+.hljs-doctype,
+.hljs-deletion,
+.hljs-envvar,
+.hljs-shebang,
+.apache .hljs-sqbracket,
+.nginx .hljs-built_in,
+.tex .hljs-formula,
+.erlang_repl .hljs-reserved,
+.hljs-prompt,
+.asciidoc .hljs-link_label,
+.markdown .hljs-link_label,
+.vhdl .hljs-attribute,
+.clojure .hljs-attribute,
+.asciidoc .hljs-attribute,
+.lasso .hljs-attribute,
+.coffeescript .hljs-property,
+.hljs-phony {
+  color: #88f;
+}
+
+.hljs-keyword,
+.hljs-id,
+.hljs-title,
+.hljs-built_in,
+.css .hljs-tag,
+.hljs-javadoctag,
+.hljs-phpdoc,
+.hljs-dartdoc,
+.hljs-yardoctag,
+.smalltalk .hljs-class,
+.hljs-winutils,
+.bash .hljs-variable,
+.apache .hljs-tag,
+.hljs-type,
+.hljs-typename,
+.tex .hljs-command,
+.asciidoc .hljs-strong,
+.markdown .hljs-strong,
+.hljs-request,
+.hljs-status {
+  font-weight: bold;
+}
+
+.asciidoc .hljs-emphasis,
+.markdown .hljs-emphasis {
+  font-style: italic;
+}
+
+.nginx .hljs-built_in {
+  font-weight: normal;
+}
+
+.coffeescript .javascript,
+.javascript .xml,
+.lasso .markup,
+.tex .hljs-formula,
+.xml .javascript,
+.xml .vbscript,
+.xml .css,
+.xml .hljs-cdata {
+  opacity: 0.5;
+}

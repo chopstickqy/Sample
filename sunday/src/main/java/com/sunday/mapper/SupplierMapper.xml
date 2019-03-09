@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sunday.inter.SupplierMapper" >
+  <resultMap id="BaseResultMap" type="com.sunday.model.Supplier" >
+    <id column="s_id" property="sId" jdbcType="VARCHAR" />
+    <result column="s_name" property="sName" jdbcType="VARCHAR" />
+    <result column="s_contact" property="sContact" jdbcType="VARCHAR" />
+    <result column="s_phone" property="sPhone" jdbcType="VARCHAR" />
+    <result column="s_address" property="sAddress" jdbcType="VARCHAR" />
+    <result column="s_description" property="sDescription" jdbcType="VARCHAR" />
+    <result column="s_time" property="sTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    s_id, s_name, s_contact, s_phone , s_address, s_description, s_time
+  </sql>
+  
+  <!-- 单条数据查询 -->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    	<include refid="Base_Column_List" />
+    from 
+    	tb_supplier
+    where 
+    	s_id = #{_parameter} 
+  </select>
+  
+  <!-- 多数据查询 -->
+  <select id="selectSuppliers" resultMap="BaseResultMap" >
+    select 
+    	<include refid="Base_Column_List" />
+    from 
+    	tb_supplier
+    where 
+    	s_name like CONCAT('%','${name}','%' ) 
+    limit 
+    	${page},5;
+  </select>
+  
+  <!-- 多数据查询 -->
+  <select id="selectAllSuppliers" resultMap="BaseResultMap" >
+    select 
+    	<include refid="Base_Column_List" />
+    from 
+    	tb_supplier
+  </select>
+  
+  <!-- 获取分页数 -->
+  <select id="totalPage" parameterType="String"  resultType="String">
+  	select 
+  		ceil(count(s_id)/5) 
+  	from 
+  		tb_supplier 
+  	where 
+		s_name like CONCAT('%','${name}','%' ) 
+  </select>
+  
+  <!-- 单条添加 -->
+  <insert id="insertSupplier" parameterType="Supplier" >
+   	insert into 
+   		tb_supplier(s_id, s_name, s_contact, s_phone, s_address, s_description, s_time) 
+   	values 
+   		(#{sId}, #{sName}, #{sContact}, #{sPhone}, #{sAddress}, #{sDescription}, #{sTime});
+  </insert>
+  
+  <!-- 单条更新 -->
+  <update id="updateSupplier" parameterType="Supplier">
+   	update 
+   		tb_supplier 
+   	set 
+	   	s_name=#{sName}, 
+	   	s_contact=#{sContact}, 
+	   	s_phone=#{sPhone},
+	   	s_address=#{sAddress},
+	   	s_description=#{sDescription}
+	where 
+		s_id=#{sId}
+   </update>
+   
+   <!-- 单条删除  -->
+   <delete id="deleteSupplier" parameterType="String">
+   		delete from tb_supplier where s_id = #{_parameter};
+   </delete>
+</mapper>
