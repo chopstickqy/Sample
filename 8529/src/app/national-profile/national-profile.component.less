@@ -1,0 +1,114 @@
+.header{
+    height:50px;
+    line-height:50px;
+    text-align: center;
+    font-size:18px;
+    background:#06C3D3;
+    color:#fff;
+    >img{
+        position: absolute;
+        left: 1rem;
+        width: 1.2rem;
+        top: 1rem;
+    }
+}
+.container{
+    background:#F8F9FC;
+    position:initial;
+    top:50px;
+    bottom:0;
+    width: 100%;
+    overflow-y: auto;
+    >.kpi-context{
+        display: flex;
+    }
+}
+.box{
+    padding-top:10px;
+    background:#fff;
+    margin-bottom:10px;
+    padding-bottom:20px;
+    .b{
+        position:relative;
+        height:200px;
+    }
+    .bb{
+        position:relative;
+        height:230px;
+    }
+    .title{
+        margin-left:20px;
+        margin-top:5px;
+        font-family:PingFangSC-Regular;
+        font-size:14px;
+        color:#4e6870;
+        letter-spacing:0;
+        text-align:left;
+        >img{
+            position: relative;
+            width: 0.8rem;
+            padding: 0 0.2rem;
+        }
+    }
+    .m{
+        height:200px;
+    }
+    img{
+        left:0;
+        right:0;
+        margin:auto;
+        position:absolute;
+    }
+    .content{
+        >div{
+            display: flex;
+            >div{
+                text-align: center;
+                flex:1;
+                margin-top:20px;
+                display: inline-block;
+                >div:first-child{
+                    font-family:DINAlternate-Bold;
+                    font-size:20px;
+                    color:#1bd0a1;
+                    letter-spacing:0;
+                    text-align:center;
+                }
+                >div:last-child{
+                    opacity:0.8;
+                    font-family:PingFangSC-Regular;
+                    font-size:13px;
+                    color:#808686;
+                    letter-spacing:0;
+                    text-align:center;
+                }
+            }
+        }
+    }
+}
+
+.warning-msg{
+    font-size: 0.7rem;
+    text-align: center;
+    background-color: #d4f2f5; 
+    padding: 0.5rem 0;
+    >a{
+        color: #3cd09e;
+        text-decoration: none;
+    }
+    >img{
+        width: 0.8rem;
+        height: 0.8rem;
+        padding: 0 0.3rem;
+    }
+}
+.charts{
+    display: block !important;
+}
+
+td{
+    padding: 0.64rem 0;
+}
+.kpi-context{
+    display: flex;
+}

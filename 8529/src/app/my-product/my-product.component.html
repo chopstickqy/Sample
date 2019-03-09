@@ -1,0 +1,299 @@
+<!-- 我的产品 -->
+<div class="myProduct">
+    <div class="myNumTile">
+        <div class="childtitle">我的表现</div>
+        <div class="numBox1 clearfix">
+            <div class="fl">
+                <h4>96%</h4>
+                <p>当前进行率</p>
+            </div>
+            <div class="fl">
+                <h4>102%</h4>
+                <p>前同比</p>
+            </div>
+        </div>
+        <div class="numBox2 clearfix">
+            <div class="fl">
+                <h4>18/<span>30</span></h4>
+                <p>月度拜访次数</p>
+            </div>
+            <div class="fl">
+                <h4>26.5%</h4>
+                <p>季度医生覆盖率</p>
+            </div>
+            <div class="fl">
+                <h4>3</h4>
+                <p>季度科室会议数</p>
+            </div>
+        </div>
+    </div>
+    <div class="lines"></div>
+
+    <!-- swpier chart -->
+    <div id="swChart">
+        <div class="swiper-container swiper-container1">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide detail">
+                    <div class="box">
+                        <div class="title">
+                            <img src="../../assets/icons/rate.png" />销售进行率分析
+                        </div>
+                        <div class="content">
+                            <div class="charts">
+                                <div echarts style="width: 80%; height: 20rem" [options]="rateOptions">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="swiper-slide detail">
+                    <div class="box">
+                        <div class="title1">
+                            最近14天销售额
+                        </div>
+                        <div class="content">
+                            <div class="charts">
+                                <div echarts style="width: 80%; height: 20rem" [options]="option2">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 如果需要分页器 -->
+            <div id="numpage" class="swiper-pagination"></div>
+        </div>
+    </div>
+
+    <!-- 医院列表 -->
+    <div class="page-customer">
+        <div class="customer-tb-top">
+            <div class="sales-header">
+                <table border="1" rules="rows" cellspacing="0" cellpadding="0">
+                    <thead>
+                        <tr>
+                            <th>指标排序</th>
+                            <th>医院名称<br><span class="head-tips">(点击右边下拉箭头，查看医院详情)</span></th>
+                            <th>医院等级</th>
+                            <th>实绩(千)</th>
+                            <th>进行率</th>
+                            <th>前同比</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="body-head">
+                            <td></td>
+                            <td>医院总计</td>
+                            <td></td>
+                            <td>125,766</td>
+                            <td>98.0%</td>
+                            <td>129.4%</td>
+                            <td></td>
+                        </tr>
+                </table>
+            </div>
+
+            <ul class="sales-list">
+                <li class="body-content " *ngFor="let item of dataList;index as i">
+                    <div class="sales-item" (click)="selectDetail(i)" [ngClass]='{"active":item.selected}'>
+                        <table>
+                            <tr>
+                                <td width='38'>{{i+1}}</td>
+                                <td width='118'>{{item.name}}</td>
+                                <td width='32'>{{item.level}}</td>
+                                <td width='20'>{{item.score}}</td>
+                                <td width='20'>{{item.rate1}}</td>
+                                <td width='20'>{{item.rate2}}</td>
+                                <td width='17' [ngClass]='{"open":item.selected}' class="arrow"></td>
+                            </tr>
+
+                        </table>
+                    </div>
+
+                    <ng-container *ngIf="item.selected">
+                        <div class="data-detail">
+                            <div id="detail-swiper" class="swiper-container">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide detail">
+                                        <div class="detail-title">
+                                            <img src="assets/icons/digestion.png">
+                                            <h5>内部消化表现</h5>
+                                        </div>
+
+                                        <table border="1" class="detail-performance">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        <h5>医院等级</h5>
+                                                    </th>
+                                                    <th>
+                                                        <h5>当期进行率</h5>
+                                                    </th>
+                                                    <th>
+                                                        <h5>前同比</h5>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <h4>三甲</h4>
+                                                    </td>
+                                                    <td>
+                                                        <h4>96.1%</h4>
+                                                    </td>
+                                                    <td>
+                                                        <h4>89.0%</h4>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div echarts style="width: 100%; height:150px;padding:0;" [options]="performance">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide detail">
+                                        <div class="detail-title">
+                                            <img src="assets/icons/trend.png">
+                                            <h5>竞品的份额趋势</h5>
+                                        </div>
+
+                                        <div echarts style="width: 100%; height:15rem;padding:10px;" [options]="trendOption">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide detail">
+                                        <div class="swiper-slide detail">
+                                            <div class="detail-title">
+                                                <img src="assets/icons/competition.png">
+                                                <h5>竞品明细</h5>
+                                            </div>
+                                            <div class="competitve-area">
+                                                <table border="1" rules="rows" cellspacing="0" cellpadding="0" class="competitve-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>产品</th>
+                                                            <th>销售额</th>
+                                                            <th>市场<br/>份额</th>
+                                                            <th>份额<br/>变化</th>
+                                                            <th>同比<br/>增长</th>
+                                                            <th>EI</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr class="" *ngFor="let item1 of item.compete">
+                                                            <td>{{item1.product}}</td>
+                                                            <td>{{item1.price}}</td>
+                                                            <td>{{item1.share}}</td>
+                                                            <td>{{item1.change}}</td>
+                                                            <td>{{item1.add}}</td>
+                                                            <td>{{item1.EI}}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide detail">
+                                        <div class="detail-title">
+                                            <img src="assets/icons/doctor.png">
+                                            <h5>医生拜访覆盖情况</h5>
+                                        </div>
+                                        <div class="doctor-situation">
+                                            <div class="situation-chart">
+                                                <h5 class="situation-name">A级</h5>
+                                                <div class="situation-rate">
+                                                    <div class="situation-line">
+                                                        <img src="assets/images/peo1.png">
+                                                        <img src="assets/images/peo1.png">
+                                                        <img src="assets/images/peo1.png">
+                                                        <img src="assets/images/peo1.png">
+                                                        <img src="assets/images/peo1.png">
+                                                    </div>
+                                                    <div class="situaion-wrap" style="width:70%;">
+                                                        <div class="situaion-propotion">
+                                                            <img src="assets/images/peo2.png">
+                                                            <img src="assets/images/peo2.png">
+                                                            <img src="assets/images/peo2.png">
+                                                            <img src="assets/images/peo2.png">
+                                                            <img src="assets/images/peo2.png">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <h5 class="situation-num"> <span>7/</span> 10</h5>
+                                            </div>
+                                            <div class="situation-chart">
+                                                <h5 class="situation-name">B级</h5>
+                                                <div class="situation-rate">
+                                                    <div class="situation-line">
+                                                        <img src="assets/images/peo1.png">
+                                                        <img src="assets/images/peo1.png">
+                                                        <img src="assets/images/peo1.png">
+                                                        <img src="assets/images/peo1.png">
+                                                        <img src="assets/images/peo1.png">
+                                                    </div>
+                                                    <div class="situaion-wrap" style="width:60%;">
+                                                        <div class="situaion-propotion">
+                                                            <img src="assets/images/peo2.png">
+                                                            <img src="assets/images/peo2.png">
+                                                            <img src="assets/images/peo2.png">
+                                                            <img src="assets/images/peo2.png">
+                                                            <img src="assets/images/peo2.png">
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <h5 class="situation-num"><span>12/</span>20</h5>
+                                            </div>
+                                            <div class="situation-chart">
+                                                <h5 class="situation-name">C级</h5>
+                                                <div class="situation-rate">
+                                                    <div class="situation-line">
+                                                        <img src="assets/images/peo1.png">
+                                                        <img src="assets/images/peo1.png">
+                                                        <img src="assets/images/peo1.png">
+                                                        <img src="assets/images/peo1.png">
+                                                        <img src="assets/images/peo1.png">
+                                                    </div>
+                                                    <div class="situaion-wrap" style="width:52%;">
+                                                        <div class="situaion-propotion">
+                                                            <img src="assets/images/peo2.png">
+                                                            <img src="assets/images/peo2.png">
+                                                            <img src="assets/images/peo2.png">
+                                                            <img src="assets/images/peo2.png">
+                                                            <img src="assets/images/peo2.png">
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <h5 class="situation-num"><span>13/</span>25</h5>
+                                            </div>
+
+                                        </div>
+                                        <div class="doctor-visit">
+                                            <div class="visit-circle" id="visit-circle"></div>
+                                            <div class="visit-text first-text">
+                                                <h4>80%</h4>
+                                                <h5>ABC医生覆盖率</h5>
+                                            </div>
+                                            <div class="visit-text">
+                                                <h4>18/30</h4>
+                                                <h5>季度拜访次数</h5>
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="detail-page" class="swiper-pagination  detail-page"></div>
+                        </div>
+
+                    </ng-container>
+                </li>
+            </ul>
+        </div>
+    </div>

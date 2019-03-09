@@ -1,0 +1,161 @@
+.cumulative-sales{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.text-charts{
+    height: 50%;
+    width: 100%;
+    color: white;
+    background-color: #48D1CC;
+}
+
+.header{
+    width: 100%;
+    height: 40px;
+    padding-top: 10px;
+}
+
+.avatar{
+    margin-left: 20px;
+    margin-right: 10px;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    /* margin: 20px 0px; */
+    background: url('../../assets/images/avatar.png') no-repeat;
+    background-size: 100%;
+}
+
+.name{
+    display: inline;
+    font-size: 20px;
+    position: relative;
+    bottom: 10px;
+}
+
+.text-sales{
+    width: auto;
+    padding: 20px 10px;
+}
+
+.accumulative, .local, .last, .last-add, .horizontal-line{
+    text-align: center;
+}
+
+.accumulative-count{
+    font-size: 40px;
+    padding: 5px 0px;
+    font-weight: 800;
+}
+
+.local, .last , .last-add{
+    width: 33.333%;
+}
+
+.separate{
+    display: flex;
+    padding: 10px 0px; 
+}
+
+.count{
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.progress{
+    display: flex;
+    height: 0.7rem;
+    overflow: hidden;
+    font-size: .75rem;
+    background-color: #e9ecef;
+    border-radius: .50rem;
+    margin: 5px 20px;
+}
+
+.progress-bar{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    background-color: #ffc107;
+    transition: width .6s ease;
+}
+
+.progress-condition{
+    padding-left: 20px;
+    padding-bottom: 20px;
+    font-size: 15px;
+}
+
+.bar-chart{
+    height: 350px;
+    width: 100%;
+    /* padding-left: 10px; */
+}
+
+.charts-title{
+    width: 100%;
+    height: 20px;
+    display: flex;
+    position: absolute;
+}
+
+.charts-title-name{
+    width: 60%;
+    padding: 10px 10px;
+    padding-right: 0px;
+}
+
+.product-name{
+    width: 40%;
+    text-align: right;
+    padding: 10px 30px;
+    font-size: 12px;
+    /* font-weight: 100; */
+    color: gray;
+    padding-left: 0px;
+}
+
+.label{
+    font-size: 0.8rem;
+    font-weight: 100;
+}
+
+.accumulative-label{
+    font-weight: 100;
+}
+
+.chart-icon{
+    width: 15px;
+    height: 15px;
+    padding-right: 5px;
+}
+.abs-button{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    background: url('../../assets/images/button.png') no-repeat;
+    background-size: 100%;
+    bottom: 20px;
+    right: 20px;
+    webkit-box-shadow:0px 3px 3px #c8c8c8 ;
+    -moz-box-shadow:0px 3px 3px #c8c8c8 ;
+    box-shadow:0px 3px 3px #c8c8c8 ;
+
+}

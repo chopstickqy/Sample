@@ -1,0 +1,47 @@
+<div class="cumulative-sales">
+  <div class="text-charts">
+    <div class="header">
+      <div class="avatar">
+        <!-- <img src="../../assets/images/avatar.png"> -->
+      </div>
+      <div class="name">张三</div>
+    </div>
+    <div class="text-sales">
+      <div class="accumulative">
+        <div class="accumulative-label">累计销量</div>
+        <div class="accumulative-count">734523</div>
+      </div>
+      <div class="horizontal-line"> 
+        ————
+      </div>
+      <div class="separate">
+        <div class="local">
+          <div class="count">32454</div>
+          <div class="label">本月销量</div>
+        </div>
+        <div class="last">
+          <div class="count">32454</div>
+          <div class="label">上月销量</div>
+        </div>
+        <div class="last-add">
+          <div class="count">32454</div>
+          <div class="label">上月增长</div>
+        </div>
+      </div>
+    </div>
+    <div class="progress">
+        <div class="progress-bar bg-warning" style="width: 75%" ></div>
+    </div>
+    <div class="progress-condition">
+      达成情况 80%
+    </div>
+  </div>
+  <div class="charts-title">
+      <div class="charts-title-name"><img class="chart-icon" src="../../assets/images/charts.png">月度产品销售趋势</div>
+      <div class="product-name">当前产品: 芬必得</div>
+  </div>
+  <div class="table-charts">
+    <div echarts [options]="chartOption" class="bar-chart"></div>
+  </div>
+  <div class="abs-button"></div>
+</div>

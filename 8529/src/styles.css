@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+
+.flex {
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;
+    /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    display: -webkit-flex;
+    /* NEW - Chrome */
+    display: flex;
+    /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+
+.swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet-active {
+    background-color: #1cd0a1;
+}
+
+.data-detail #detail-page .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet-active {
+    background-color: #1cd0a1;
+}

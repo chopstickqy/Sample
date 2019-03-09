@@ -1,0 +1,79 @@
+<div class="page-mysurvey">
+	<div class="header">
+		<img src="../../assets/icons/nav-button.png"/>全国概况
+  </div>
+  <div class="warning-msg">
+    <img src="../../assets/icons/bell.png"/>本月，伤害地区的增长率为23%，请注意， <a href="#">更多详情</a>
+  </div>
+	<div class="container">
+		<div class="box">
+      <div class="title">
+        <img src="../../assets/icons/kpi.png"/>关键KPI
+      </div>
+      <div class="kpi-context"> 
+        <div class="charts">
+            <canvas id="cavas" height="200px" width="200">  
+                您的浏览器不支持canvas标签！请尝试使用<a href="#">google浏览器</a>  
+            </canvas>  
+        </div>
+        <div class="content" style="padding:20px 0px">
+          <div>
+            <div style="padding: 0px 10px">
+              <div>162178</div>
+              <div>当前指标</div>
+            </div>
+            <div>
+              <div>111421</div>
+              <div>当前销量</div>
+            </div>
+          </div>
+          <div>
+            <div>
+              <div>82178</div>
+              <div>当月销量</div>
+            </div>
+            <div>
+              <div>82421</div>
+              <div>上月销量</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+	</div>
+	<div class="box">
+		<div class="title">
+        <img src="../../assets/icons/rate.png"/>销售进行率分析
+		</div>
+		<div class="content">
+      <div class="charts">
+        <div echarts style="width: 100%; height: 30rem" [options]="rateOptions">
+      </div>
+		</div>
+	</div>
+	<div class="box">
+		<div class="title">
+        <img src="../../assets/icons/quota.png"/>管辖产品当期销售额和指标
+		</div>
+		<div class="content">
+      <div class="charts">
+        <div echarts style="width: 80%; height: 30rem" [options]="quateOptions">
+      </div>
+      <div style="margin-top: 0px;margin-bottom: 38px;">
+        <table>
+          <tr><td style="padding-bottom: 1.8rem;">前同比</td></tr>
+          <tr><td>102.1%</td></tr>
+          <tr><td>108.5%</td></tr>
+          <tr><td>120.1%</td></tr>
+          <tr><td>104.1%</td></tr>
+          <tr><td>108.5%</td></tr>
+          <tr><td>120.1%</td></tr>
+          <tr><td>104.0%</td></tr>
+          <tr><td>120.1%</td></tr>
+          <tr><td>104.0%</td></tr>
+        </table>
+      </div>
+    </div>
+	</div>
+	</div>
+</div>

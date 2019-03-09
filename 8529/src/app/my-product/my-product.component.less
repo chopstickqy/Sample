@@ -1,0 +1,580 @@
+* {
+    box-sizing: border-box;
+}
+
+ul,
+li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+.hide {
+    display: none;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+/* 我的表现 */
+
+.childtitle {
+    margin-top: 17px;
+    background: url("../../assets/icons/icon_crm.png") no-repeat 20px center;
+    -webkit-background-size: 16px;
+    background-size: 16px;
+    padding-left: 40px;
+    font-size: 14px;
+    color: #4E6870;
+}
+
+.numBox1 div {
+    width: 50%;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.numBox1 div h4 {
+    margin: 0;
+    padding-top: 15px;
+    font-size: 20px;
+    color: #1BD0A1;
+    line-height: 24px;
+}
+
+.numBox1 div p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 18px;
+    color: #808686;
+}
+
+.numBox2 div {
+    width: 33.33%;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.numBox2 div h4 {
+    margin: 0;
+    padding-top: 15px;
+    font-size: 20px;
+    color: #1BD0A1;
+    line-height: 24px;
+}
+
+.numBox2 div h4 span {
+    color: #333;
+}
+
+.numBox2 div p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 18px;
+    color: #808686;
+}
+
+.lines {
+    width: 100%;
+    height: 15px;
+    background: #F8F9FC;
+}
+
+/* banner */
+
+#swChart {}
+
+.box {
+    padding-top: 10px;
+    background: #fff;
+    margin-bottom: 10px;
+}
+
+.box .b {
+    position: relative;
+    height: 200px;
+}
+
+.box .bb {
+    position: relative;
+    height: 230px;
+}
+
+.box .title {
+    margin-left: 20px;
+    margin-top: 5px;
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #4e6870;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.box .title1 {
+    margin-left: 20px;
+    margin-top: 5px;
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #4e6870;
+    letter-spacing: 0;
+    text-align: left;
+    background: url("../../assets/icons/rmb.png") no-repeat left center;
+    background-size: 13px;
+    padding-left: 20px;
+}
+
+.box .title img {
+    position: relative;
+    width: 18px;
+    padding-right: 4px;
+}
+
+.box .m {
+    height: 200px;
+}
+
+.box img {
+    left: 0;
+    right: 0;
+    margin: auto;
+    position: absolute;
+}
+
+.content div {
+    display: flex;
+}
+
+.content div div {
+    text-align: center;
+    flex: 1;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.content .charts {
+    width: 94%;
+    margin: 0 auto;
+}
+
+.content div div:first-child {
+    font-family: DINAlternate-Bold;
+    font-size: 20px;
+    color: #1bd0a1;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+.content div div:last-child {
+    opacity: 0.8;
+    font-family: PingFangSC-Regular;
+    font-size: 13px;
+    color: #808686;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+#swChart .swiper-container1 .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+}
+
+#numpage .swiper-pagination-bullet-active {
+    background: #03D3B0;
+}
+
+/* 医院列表 */
+
+.page-customer {
+    background-color: #fff;
+    font-family: PingFangSC-Regular;
+    font-size: 12px;
+}
+
+.page-customer .customer-tb-top {
+    color: #808686;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.page-customer .customer-tb-top table {
+    border: 1px solid #eaedf1;
+    border-collapse: collapse;
+    border-left: 0;
+    border-right: 0;
+    width: 100%;
+}
+
+.page-customer .customer-tb-top table thead th {
+    font-size: 15px;
+    color: #4e6870;
+    border-top: 2px solid #eaedf1;
+}
+
+.page-customer .customer-tb-top table thead th .head-tips {
+    opacity: 0.8;
+    font-size: 10px;
+    letter-spacing: 0;
+    padding: 2px;
+}
+
+.page-customer .customer-tb-top table thead th:nth-of-type(1) {
+    width: 38px;
+    padding-right: 5px;
+}
+
+.page-customer .customer-tb-top table thead th:last-of-type {
+    width: 17px;
+}
+
+.page-customer .customer-tb-top table tbody .body-head {
+    font-family: PingFangSC-Medium;
+    font-size: 12px;
+    color: #4e6870;
+}
+
+.page-customer .customer-tb-top table tbody tr td:nth-of-type(3) {
+    text-align: center;
+}
+
+.page-customer .customer-tb-top table tbody tr td:nth-of-type(4),
+.page-customer .customer-tb-top table tbody tr td:nth-of-type(5),
+.page-customer .customer-tb-top table tbody tr td:nth-of-type(6) {
+    text-align: right;
+    padding-left: 7px;
+}
+
+.page-customer .customer-tb-top table tbody tr td {
+    padding: 8px 0;
+    height: 40px;
+}
+
+.page-customer .customer-tb-top table tbody .body-content td:last-of-type {
+    background: url(../../assets/images/arrow.png) center center no-repeat;
+    background-size: 10px;
+}
+
+.page-customer .customer-tb-top table tbody .body-content td.open {
+    transform: rotateX(180deg);
+}
+
+.page-customer .customer-tb-top table tbody .body-content td.no-arrow {
+    background-size: 0;
+    padding: 18px 0;
+}
+
+.page-customer .customer-tb-top table tbody .body-content td .detail {
+    background-color: #f8f9fc;
+}
+
+.page-customer .customer-tb-top table tbody .body-content td .detail .detail-title {
+    text-align: center;
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #4e6870;
+    letter-spacing: 0;
+    padding: 14px 0;
+}
+
+.page-customer .customer-tb-top table tbody .body-content td .detail .detail-title .detail-icon {
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    margin-right: 4px;
+    background: url(../../assets/images/detail.png) center center no-repeat;
+    background-size: 12px;
+}
+
+.page-customer .customer-tb-top table tbody .body-content td .detail table thead th {
+    font-size: 13px;
+    color: #4e6870;
+    text-align: right;
+    padding-left: 25px;
+    padding-right: 0;
+}
+
+.page-customer .customer-tb-top table tbody .body-content td .detail table thead th:nth-of-type(1) {
+    font-family: PingFangSC-Regular;
+    font-size: 13px;
+    color: #4e6870;
+    letter-spacing: 0;
+    line-height: 15px;
+    text-align: left;
+    padding-left: 8px;
+}
+
+.page-customer .customer-tb-top table tbody .body-content td .detail table thead th:nth-of-type(2) {
+    width: 118px;
+}
+
+.page-customer .customer-tb-top table tbody .body-content td .detail table thead th:nth-of-type(3),
+.page-customer .customer-tb-top table tbody .body-content td .detail table thead th:nth-of-type(4),
+.page-customer .customer-tb-top table tbody .body-content td .detail table thead th:nth-of-type(5) {
+    width: 32px;
+}
+
+.page-customer .customer-tb-top table tbody .body-content td .detail table thead th:last-of-type {
+    width: auto;
+    text-align: center;
+}
+
+.page-customer .customer-tb-top table tbody .body-content td .detail table tbody tr td {
+    font-family: PingFangSC-Medium;
+    font-size: 11px;
+    color: #808686;
+    letter-spacing: 0;
+    text-align: right;
+    padding: 8px 0;
+    padding-left: 25px;
+}
+
+.page-customer .customer-tb-top table tbody .body-content td .detail table tbody tr:first-of-type td {
+    color: #4e6870;
+}
+
+.page-customer .customer-tb-top table tbody .body-content td .detail table tbody tr td:first-of-type {
+    text-align: left;
+    padding-left: 8px;
+}
+
+.page-customer .customer-tb-top table tbody .body-content td .detail table tbody tr td:nth-of-type(2) {}
+
+.page-customer .customer-tb-top table tbody .body-content td .detail table tbody tr td:last-of-type {
+    background-size: 0;
+    text-align: center;
+    padding-right: 8px;
+}
+
+/* 重置 */
+
+.page-customer {
+    .customer-tb-top {
+        .sales-header {
+            padding: 0 20px;
+            table {
+                thead {
+                    th {
+                        text-align: center;
+                    }
+                    th:nth-of-type(2) {
+                        text-align: left;
+                    }
+                }
+            }
+        }
+        .sales-list {
+            li {
+                .sales-item {
+                    padding: 0 20px;
+                    table {
+                        border: 0;
+                        border-top: 1px solid #eaedf1;
+                        border-bottom: 1px solid #eaedf1;
+                        td.arrow {
+                            background: url(../../assets/images/arrow.png) center center no-repeat;
+                            background-size: 10px;
+                        }
+                        td.open {
+                            transform: rotateX(180deg);
+                        }
+                    }
+                    &.active {
+                        background: #e5faf7;
+                    }
+                }
+                .data-detail {
+                    padding: 18px 20px 36px;
+                    table.detail-performance {
+                        width: 96%;
+                        margin: 0 auto;
+                        th,
+                        td {
+                            &:first-child {
+                                border-left: 0;
+                            }
+                            &:last-child {
+                                border-right: 0;
+                            }
+                            text-align: center;
+                            height: 36px;
+                            width: 33%;
+                            h5 {
+                                font-weight: normal;
+                                font-size: 13px;
+                                color: #4e6870;
+                                margin: 0;
+                            }
+                            h4 {
+                                font-weight: normal;
+                                font-size: 16px;
+                                color: #1bd0a1;
+                                margin: 0;
+                            }
+                        }
+                    }
+                    .detail-title {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 20px 0 25px;
+                        h5 {
+                            font-weight: normal;
+                            font-size: 14px;
+                            color: #4e6870;
+                            margin: 0;
+                        }
+                        img {
+                            width: 13px;
+                            margin-right: 3px;
+                        }
+                    }
+                    .swiper-slide.detail {
+                        height: 300px;
+                        background: #f8f9fc;
+                    }
+                    .competitve-area {
+                        padding: 0 5px 10px;
+                        table.competitve-table {
+                            thead {
+                                th {
+                                    font-size: 13px;
+                                    color: #4e6870;
+                                    font-weight: normal;
+                                    text-align: center;
+                                    &:nth-of-type(2) {
+                                        text-align: right;
+                                    }
+                                }
+                            }
+                            tbody {
+                                tr {
+                                    td {
+                                        text-align: center;
+                                        padding-left: 0;
+                                        width: auto;
+                                        &:nth-of-type(2) {
+                                            text-align: right;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .doctor-situation{
+                        text-align: center;
+                        .situation-chart{
+                            display: flex;
+                            align-items: center;
+                            justify-content:center;
+                            margin-bottom: 12px;
+                            h5{
+                                font-size:13px; 
+                                color:#808686;
+                                margin: 0;
+                                font-weight: normal;
+                            }
+                            h5.situation-name{
+                                margin-right: 20px;
+                            
+                            }
+                            h5.situation-num{
+                                text-align: left;
+                                width: 40px;
+                                margin-left: 6px;
+                                span{
+                                    color:#1bd0a1;
+                                }
+                            }
+                           .situation-rate{
+                            position: relative;
+                            width:140px;
+                            .situation-line,.situaion-propotion{
+                                width:140px;
+                                display: flex;
+                                img{
+                                    width: 13px;
+                                    height: 30px;
+                                    margin-right: 15px;
+                                }
+                            }
+                            .situaion-wrap{
+                                position: absolute;
+                                z-index:10;
+                                top: 0;
+                                left: 0;
+                                overflow: hidden;
+                            }
+                           }
+                           
+                        }
+                    }
+                    .doctor-visit {
+                        display: flex;
+                        align-items: center;
+                        .visit-text.first-text{
+                            margin-right:38px;
+                        }
+                        .visit-text {
+                            text-align: center;
+                            h4,h5{
+                                margin: 0;
+                            }
+                            h4 {
+                                font-size: 20px;
+                                color: #4e6870;
+                                font-weight: normal;
+                            }
+                            h5{
+                                font-size:13px;
+                                color:#808686;
+                                font-weight: normal;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.myProduct {
+    .swiper-container-free-mode>.swiper-wrapper {
+        padding-bottom: 30px;
+    }
+    .swiper-container-horizontal>.swiper-pagination-bullets {
+        bottom: 0;
+    }
+    .swiper-pagination {
+        .swiper-pagination-bullet-active {
+            opacity: 1;
+            background: #1bd0a1;
+        }
+    }
+}
+#detail-page{
+    margin: 0 auto;
+    width: 100%;
+    margin-top: 10px;
+    .swiper-pagination-bullet{
+        width: 10px;
+    }
+}

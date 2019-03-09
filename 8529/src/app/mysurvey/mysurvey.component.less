@@ -1,0 +1,100 @@
+.header{
+    height:50px;
+    line-height:50px;
+    text-align: center;
+    font-size:18px;
+    background:#06C3D3;
+    color:#fff;
+}
+.container{
+    background:#F8F9FC;
+    position:fixed;
+    top:50px;
+    bottom:0;
+    width: 100%;
+    overflow-y: auto;
+}
+.box{
+    padding-top:10px;
+    background:#fff;
+    margin-bottom:10px;
+    padding-bottom:20px;
+    .b{
+        position:relative;
+        height:230px;
+        background:#fff;
+    }
+    
+    .bb{
+        position:relative;
+        height:230px;
+    }
+    .title{
+        margin-left:20px;
+        margin-top:5px;
+        font-family:PingFangSC-Regular;
+        font-size:14px;
+        color:#4e6870;
+        letter-spacing:0;
+        text-align:left;
+    }
+    .m{
+        height:200px;
+    }
+    img{
+        left:0;
+        right:0;
+        margin:auto;
+        position:absolute;
+    }
+    .content{
+        .dd{
+            background:#fff;
+            position:relative;
+            display: block;
+            left:0;
+            right:0;
+            margin:auto;
+            width:60px;
+            bottom:20px;
+            >div:first-child{
+                margin-right:20px;
+            }
+            >div{
+                 background:#fff;
+                float:left;
+                
+                width:10px;
+                height:10px;
+                border-radius:50%;
+                background:#C9C6C9;
+            }
+            >div.active{
+                background:#07D0A6;
+            }
+        }
+        >div{
+            display: flex;
+            >div{
+                text-align: center;
+                flex:1;
+                margin-top:20px;
+                >div:first-child{
+                    font-family:DINAlternate-Bold;
+                    font-size:20px;
+                    color:#1bd0a1;
+                    letter-spacing:0;
+                    text-align:center;
+                }
+                >div:last-child{
+                    opacity:0.8;
+                    font-family:PingFangSC-Regular;
+                    font-size:13px;
+                    color:#808686;
+                    letter-spacing:0;
+                    text-align:center;
+                }
+            }
+        }
+    }
+}

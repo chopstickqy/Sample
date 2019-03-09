@@ -1,0 +1,174 @@
+<div class="page-customer">
+  <div class="customer-tb-top">
+    <table border="1" rules="rows" cellspacing="0" cellpadding="0">
+      <thead>
+        <tr>
+          <th>指标排序</th>
+          <th>Top30医院名称<br><span class="head-tips">(点击右边下拉箭头，查看医院详情)</span></th>
+          <th>医院等级</th>
+          <th>实绩(千)</th>
+          <th>进行率</th>
+          <th>前同比</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="body-head">
+          <td></td>
+          <td>医院总计</td>
+          <td></td>
+          <td>125,766</td>
+          <td>98.0%</td>
+          <td>129.4%</td>
+          <td></td>
+        </tr>
+        <tr class="body-content" *ngFor="let item of dataList;index as i" (click)="selectDetail(i)">
+          <ng-container *ngIf="selectIndex+1 != i">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.level}}</td>
+            <td>{{item.score}}</td>
+            <td>{{item.rate1}}</td>
+            <td>{{item.rate2}}</td>
+            <td [ngClass]="{'open': selectIndex == i}"></td>
+          </ng-container>
+          <ng-container *ngIf="selectIndex+1 == i">
+            <td class="no-arrow" colspan="7">
+              <div class="swiper-container">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide detail">
+                    <div class="detail-title"><i class="detail-icon detail-icon-chart"></i>竞争的份额趋势</div>
+                    <div class="detail-content">
+                      <div class="detail-share-chart" echarts [options]="shareOptions"></div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide detail">
+                    <div class="detail-title"><i class="detail-icon"></i>竞品明细</div>
+                    <div class="detail-content">
+                      <table border="1" rules="rows" cellspacing="0" cellpadding="0">
+                        <thead>
+                          <tr>
+                            <th>产品</th>
+                            <th>销售额</th>
+                            <th>市场份额</th>
+                            <th>份额变化</th>
+                            <th>同比增长</th>
+                            <th>EI</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr class="" *ngFor="let item1 of dataList[this.selectIndex].compete">
+                            <td>{{item1.product}}</td>
+                            <td>{{item1.price}}</td>
+                            <td>{{item1.share}}</td>
+                            <td>{{item1.change}}</td>
+                            <td>{{item1.add}}</td>
+                            <td>{{item1.EI}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="swiper-slide detail">
+                    <div class="detail-title"><i class="detail-icon detail-icon-doc"></i>医生拜访覆盖情况</div>
+                    <div class="detail-content">
+                      <div class="detail-doc">
+                        <div class="detail-doc-item">
+                          <span class="doc-level">A级</span>
+                          <div class="doc-nb">
+                            <div class="doc-nb-total">
+                              <img src="../../assets/images/peo1.png" alt="">
+                              <img src="../../assets/images/peo1.png" alt="">
+                              <img src="../../assets/images/peo1.png" alt="">
+                              <img src="../../assets/images/peo1.png" alt="">
+                              <img src="../../assets/images/peo1.png" alt="">
+                            </div>
+                            <div class="doc-nb-current" style="width:90px;">
+                              <div class="">
+                                <img src="../../assets/images/peo2.png" alt="">
+                                <img src="../../assets/images/peo2.png" alt="">
+                                <img src="../../assets/images/peo2.png" alt="">
+                                <img src="../../assets/images/peo2.png" alt="">
+                                <img src="../../assets/images/peo2.png" alt="">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="doc-rate">
+                            <span>7/</span>10
+                          </div>
+                        </div>
+                        <div class="detail-doc-item">
+                          <span class="doc-level">B级</span>
+                          <div class="doc-nb">
+                            <div class="doc-nb-total">
+                              <img src="../../assets/images/peo1.png" alt="">
+                              <img src="../../assets/images/peo1.png" alt="">
+                              <img src="../../assets/images/peo1.png" alt="">
+                              <img src="../../assets/images/peo1.png" alt="">
+                              <img src="../../assets/images/peo1.png" alt="">
+                            </div>
+                            <div class="doc-nb-current" style="width:80px;">
+                              <div class="">
+                                <img src="../../assets/images/peo2.png" alt="">
+                                <img src="../../assets/images/peo2.png" alt="">
+                                <img src="../../assets/images/peo2.png" alt="">
+                                <img src="../../assets/images/peo2.png" alt="">
+                                <img src="../../assets/images/peo2.png" alt="">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="doc-rate">
+                            <span>12/</span>20
+                          </div>
+                        </div>
+                        <div class="detail-doc-item">
+                          <span class="doc-level">C级</span>
+                          <div class="doc-nb">
+                            <div class="doc-nb-total">
+                              <img src="../../assets/images/peo1.png" alt="">
+                              <img src="../../assets/images/peo1.png" alt="">
+                              <img src="../../assets/images/peo1.png" alt="">
+                              <img src="../../assets/images/peo1.png" alt="">
+                              <img src="../../assets/images/peo1.png" alt="">
+                            </div>
+                            <div class="doc-nb-current" style="width:62px;">
+                              <div class="">
+                                <img src="../../assets/images/peo2.png" alt="">
+                                <img src="../../assets/images/peo2.png" alt="">
+                                <img src="../../assets/images/peo2.png" alt="">
+                                <img src="../../assets/images/peo2.png" alt="">
+                                <img src="../../assets/images/peo2.png" alt="">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="doc-rate">
+                            <span>13/</span>25
+                          </div>
+                        </div>
+                      </div>
+                      <div class="detail-doc-cover">
+                        <div class="detail-doc-chart" echarts [options]="docOptions"></div>
+                        <div class="detail-doc-right">
+                          <div class="detail-doc-right-rate">
+                            <div>80%</div>
+                            <div>ABC医生覆盖率</div>
+                          </div>
+                          <div class="detail-doc-right-rate">
+                            <div><span class="detail-doc-green">18/</span>30</div>
+                            <div>季度拜访次数</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- 如果需要分页器 -->
+                <div class="swiper-pagination"></div>
+              </div>
+            </td>
+          </ng-container>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,93 @@
+<div class="page-mysurvey">
+	<div class="header">
+		我的概况
+	</div>
+	<div class="container">
+		<div class="box">
+		<div class="title">
+			关键KPI
+		</div>
+		<div class="m">
+			<img src="../../assets/icons/1.png" alt="" />
+		</div>
+		
+		<div class="content">
+			
+			<div>
+				<div>
+					<div>162178</div>
+					<div>当前指标</div>
+				</div>
+				<div>
+					<div>111421</div>
+					<div>当前销量</div>
+				</div>
+			</div>
+			<div>
+				<div>
+					<div>82178</div>
+					<div>当月销量</div>
+				</div>
+				<div>
+					<div>82421</div>
+					<div>上月销量</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="box">
+		<div class="title">
+			销售进行率分析
+		</div>
+		<div class="content">
+			<div class="bb">
+				<img src="../../assets/icons/2.png" alt="" />
+			</div>
+			
+		</div>
+	</div>
+	<div class="box">
+		<div class="title">
+			管辖产品当期销售额和指标
+		</div>
+		<div class="content">
+			<div class="b">
+				<img *ngIf="active" src="../../assets/icons/3.png" alt="" />
+				<img *ngIf="!active" src="../../assets/icons/4.png" alt="" />
+			</div>
+			<div class="dd">
+				<div  [ngClass]="{active:!active}" (click)="active=false"></div>
+				<div [ngClass]="{active:active}" (click)="active=true"></div>
+			</div>
+		</div>
+	</div>
+	<div class="box">
+		<div class="title">
+			我的CRM表现
+		</div>
+		<div class="content">
+			<div>
+				<div>
+					<div>18/30</div>
+					<div>月度拜访次数</div>
+				</div>
+				<div>
+					<div>26.5%</div>
+					<div>季度医生覆盖率</div>
+				</div>
+			</div>
+			<div>
+				<div>
+					<div>89.5%</div>
+					<div>季度协访率</div>
+				</div>
+				<div>
+					<div>3/4</div>
+					<div>季度科室会议数</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	
+</div>
